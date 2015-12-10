@@ -1,0 +1,50 @@
+% 名前が重複したパッケージをインクルードした時にエラーメッセージを吐く
+\ProvidesPackage{latexsetting}
+
+% tikzとdvipdfmxを一緒に使いかつgraphicxを使わない時に記述する
+%\def\pgfsysdriver{pgfsys-dvipdfmx.def}
+%\usepackage{ascmac} % \itemboxなどの利用
+\usepackage{moreverb} % ソースコードを埋め込むmoreverbの利用
+\usepackage{fancyvrb} % 枠を出力するfancyvrbの利用
+\usepackage{itembbox} % breakitemboxの利用に必要な一部のパッケージ
+\usepackage{itembkbx} % breakitemboxの利用に必要な一部のパッケージ
+\usepackage{jquote} % breakitemboxの利用に必要な一部のパッケージ
+\usepackage{emathC} % breakitemboxの利用に必要な一部のパッケージ
+\usepackage{eclbkbox} % breakitemboxの利用に必要な一部のパッケージ
+%\usepackage{listings,jlisting} % ソースコードを綺麗に埋め込むlistingの利用
+\usepackage{color}
+\usepackage{tikz} % 文字に色をつけることが可能
+\usepackage{graphicx} % 画像の埋め込みに利用
+\usepackage{gnuplot-lua-tikz} % 埋め込みグラフの作成
+\usepackage{tikz-uml} % tikzによるUML図の作成
+\usepackage{titling} % 一つの文書に複数のタイトルをつけることができる
+\usepackage{amsmath} % 数式を出力するalign環境を使う為のパッケージ
+\newcommand\mintedstyle{minted}
+\newcommand\listingstyle{listings}
+\usetikzlibrary{shapes,positioning}
+
+\newcommand\selectstyle[1]{{%
+        \ifx#1\mintedstyle
+            \chardef\pdf@shellescape=\@ne
+            \usepackage{minted}
+        \else
+            \ifx#1\listingstyle
+                \usepackage{listings,jlisting}%
+                \usepackage{listingsetting}%
+            \else
+                \usepackage{ascmac}%
+            \fi
+        \fi
+}}%
+
+
+
+
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=12em, aspect=6,text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=12em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height = 2em]
+\tikzstyle{start} = [draw,rounded rectangle,fill=red!30 ,minimum height = 2em,text width=12em, text centered]
