@@ -1,11 +1,17 @@
 % mintedを使うときに定義する
-\chardef\pdf@shellescape=\@ne
-\usepackage[]{minted} % 第二のソースを載せるスタイルファイル
-\newmintedfile[Cminted]{c}{
+%\chardef\pdf@shellescape=\@ne
+\usepackage[cache=false]{minted} % 第二のソースを載せるスタイルファイル
+\newmintedfile[Cmintedfile]{c}{
 linenos,
 mathescape,
 numbersep=5pt,
 frame=lines,
 framesep=2mm,
-bgcolor=bg
+}
+\newminted[Cminted]{c}{
+linenos,
+mathescape,
+numbersep=5pt,
+frame=lines,
+framesep=2mm,
 }
