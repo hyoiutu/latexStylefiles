@@ -7,6 +7,8 @@
 \usepackage[cache=false]{minted}
 %-------------------------------------------
 \usepackage{color}
+\usepackage{mdframed}
+\usepackage{caption}
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 %\chardef\pdf@shellescape=\@ne
 \usepackage[cache=false]{minted} % 第二のソースを載せるスタイルファイル
@@ -40,3 +42,14 @@ frame=lines,
 framesep=2mm,
 bgcolor=bg
 }%
+\newcommand{\CmintedfileAP}[2]{%
+\begin{mdframed}[
+    linecolor=black,
+    topline=false, 
+    bottomline=false,
+    leftline=false,
+    rightline=false]
+      \Cmintedfile[breaklines]{#1}
+      \captionof{listing}{#2}
+\end{mdframed}
+}
