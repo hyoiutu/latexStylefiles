@@ -1,11 +1,18 @@
 % mintedを使うときに定義する
-\chardef\pdf@shellescape=\@ne
-\usepackage[]{minted} % 第二のソースを載せるスタイルファイル
-\newmintedfile[Cminted]{c}{
+%----TeXLive2014の場合は以下を有効にする----
+%\chardef\pdf@shellescape=\@ne
+%\usepackage[]{minted} % 第二のソースを載せるスタイルファイル
+%-------------------------------------------
+%----TeXLive2015の場合は以下を有効にする----
+\usepackage[cache=false]{minted}
+%-------------------------------------------
+\usepackage{color}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\newmintedfile[Cminted]{c}{%
 linenos,
 mathescape,
 numbersep=5pt,
 frame=lines,
 framesep=2mm,
 bgcolor=bg
-}
+}%
